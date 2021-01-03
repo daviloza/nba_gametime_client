@@ -4,12 +4,12 @@ import requests
 frontend = Blueprint('frontend', __name__)
 @frontend.route('/frontend/fixtures/<int:date>')
 def bydate(date):
-    datas = requests.get('http://localhost:5000/schedule/bydate/{date}'.format(date=date))
+    datas = requests.get('http://34.101.149.54:5000/schedule/bydate/{date}'.format(date=date))
     data = datas.json()
     return render_template('fixture-grid.html',data=data)
 
 @frontend.route('/frontend/fixtures')
 def todays_game():
-    datas = requests.get('http://localhost:5000/schedule/todays_game')
+    datas = requests.get('http://34.101.149.54:5000/schedule/todays_game')
     data = datas.json()
     return render_template('fixture-grid.html',data=data)
